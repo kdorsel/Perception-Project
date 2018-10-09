@@ -32,6 +32,8 @@
 [world1]: ./pics/world1.png
 [world2]: ./pics/world2.png
 [world3]: ./pics/world3.png
+[matrix1]: ./pics/matrix1.png
+[matrix2]: ./pics/matrix2.png
 
 ---
 ### Writeup / README
@@ -63,6 +65,10 @@ ec.set_MaxClusterSize(1000)
 #### 2. Complete Exercise 3 Steps.  Features extracted and SVM trained.  Object recognition implemented.
 Using hsv with bin sizes of 32 for the color histogram and the normal histogram, numpy was left to figure out itself.
 Also cleaned up both functions by using numpy from the get go instead of converting and looping twice.
+
+![alt text][matrix1]
+![alt text][matrix2]
+
 
 ### Pick and Place Setup
 
