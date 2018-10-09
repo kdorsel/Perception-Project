@@ -68,11 +68,20 @@ Also cleaned up both functions by using numpy from the get go instead of convert
 
 #### 1. For all three tabletop setups (`test*.world`), perform object recognition, then read in respective pick list (`pick_list_*.yaml`). Next construct the messages that would comprise a valid `PickPlace` request output them to `.yaml` format.
 
+The settings from exercise 3 were changed a lot at this point and a secondary passthrough over the y axis was also added. Leaf size of `0.005` was used to give the most data as speed was not a huge concern. Passthrough filter in `z` with `(0.6, 0.8)` and `y` with `(-0.55, 0.55)`. The `y` filter was to remove the side of the bins that could be seen to prevent misclassification. Outliers were removed with a std dev of `0.05` and the table was filtered out with a threshold of `0.005`. This low threshold prevented from removing any of the object points. Finally a cluster tolerance of `0.01` was used as some of the objects were very close to each other in world3.
 
+For the training bin sizes of 64 were used for the color space and 100 for the normal space. The model was taught over 30 samples. The same model was used for all 3 worlds. Might have gotten better results if had created a specific model for world2 with only the items in that world.
 
+Currently only the color and normal histogram are used as features. There are some objects that are quite similar in shape (rectangular) which makes differentiating them over the normals very difficult. One thing that could be added would be the actual size of the object. By sorting it becomes orientation independent. This might greatly help for similar shape objects, but of different sizes.
+`sort([max(pointsZ)-min(pointsZ), max(pointsY)-min(pointsY), max(pointsX)-min(pointsX)])``
 
+To solve the problem with the world2 misclassification, I would probably look at the color histograms. The two objects are similar in shape, but relatively different in color. By analyzing it a little closer might be able to tweak it sufficiently. Otherwise extra features would need to be added.
+
+World 1 works with 3/3.
 ![alt text][world1]
 
+World2 the book gets misclassified as biscuits. 4/5
 ![alt text][world2]
 
+World 3 works with 8/8.
 ![alt text][world3]
