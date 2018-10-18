@@ -34,6 +34,9 @@
 [world3]: ./pics/world3.png
 [matrix1]: ./pics/matrix1.png
 [matrix2]: ./pics/matrix2.png
+[matrix3]: ./pics/matrix3.png
+[matrix4]: ./pics/matrix4.png
+[matrixall]: ./pics/matrixall.png
 
 ---
 ### Writeup / README
@@ -66,9 +69,16 @@ ec.set_MaxClusterSize(1000)
 Using hsv with bin sizes of 32 for the color histogram and the normal histogram, numpy was left to figure out itself.
 Also cleaned up both functions by using numpy from the get go instead of converting and looping twice.
 
+Here are the matrix for exercise.
+
 ![alt text][matrix1]
 ![alt text][matrix2]
 
+And for the project
+
+![alt text][matrix3]
+![alt text][matrix4]
+![alt text][matrixall]
 
 ### Pick and Place Setup
 
